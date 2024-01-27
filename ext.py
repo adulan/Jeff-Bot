@@ -226,13 +226,13 @@ def get_player_object(ctx, player):
         user_id = player[:-5]
     else:
         user_id = player
-    obj = discord.utils.get(ctx.message.server.members, id=user_id)
+    obj = discord.utils.get(ctx.guild.members, name=user_id)
     return obj
 
 
 def get_role_object(ctx, role):
     """Returns the object for a role"""
-    return discord.utils.get(ctx.message.server.roles, name=role)
+    return discord.utils.get(ctx.guild.roles, name=role)
 
 
 async def remove_player(client, ctx, nick, role):
